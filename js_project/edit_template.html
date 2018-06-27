@@ -1,0 +1,371 @@
+<html>
+<head>
+    <link rel="stylesheet" href="includes/bootstrap.css">
+    <script src="includes/jquery-3.3.1.min.js"></script>
+    <script src="includes/bootstrap.js" type="text/javascript"></script>
+
+    <style>
+        div.unit {
+            float: left;
+            margin-bottom: 5px;
+            margin-right: 15px;
+            color: black;
+        }
+
+        p.original {
+            font-size: 12pt;
+            margin: 0em;
+            padding: 0em 0em;
+        }
+
+        p.translation {
+            font-size: 8pt;
+            font-family: sans-serif;
+            color: gray;
+            margin: 0em;
+            padding: 0em 0em;
+        }
+
+        .changed-input-element {
+            background-color: rgba(235, 228, 33, 0.45);
+        }
+
+        textarea {
+            width: 100%;
+            resize: auto;
+            height: 200px;
+
+        }
+
+        input {}
+    </style>
+    <script>
+        $("document").ready(function() {
+            var testJSON = {
+                "sentence1": [{
+                        "original": "For",
+                        "translation": "Denn"
+                    },
+                    {
+                        "original": "God",
+                        "translation": "Gott"
+                    },
+                    {
+                        "original": "so",
+                        "translation": "so"
+                    },
+                    {
+                        "original": "loved",
+                        "translation": "geliebt"
+                    },
+                    {
+                        "original": "the",
+                        "translation": "die"
+                    },
+                    {
+                        "original": "world,",
+                        "translation": "Welt,"
+                    },
+                    {
+                        "original": "that",
+                        "translation": "dass"
+                    },
+                    {
+                        "original": "he",
+                        "translation": "er"
+                    },
+                    {
+                        "original": "gave",
+                        "translation": "gegeben"
+                    },
+                    {
+                        "original": "his",
+                        "translation": "seinen"
+                    },
+                    {
+                        "original": "only",
+                        "translation": "einzig"
+                    },
+                    {
+                        "original": "begotten",
+                        "translation": "eingeborenen"
+                    },
+                    {
+                        "original": "Son,",
+                        "translation": "Sohn"
+                    },
+                    {
+                        "original": "whosoever",
+                        "translation": "wer auch immer"
+                    },
+                    {
+                        "original": "believeth",
+                        "translation": "glaubt"
+                    },
+                    {
+                        "original": "in",
+                        "translation": "in"
+                    },
+                    {
+                        "original": "him",
+                        "translation": "ihn"
+                    },
+                    {
+                        "original": "shall",
+                        "translation": "wird"
+                    },
+                    {
+                        "original": "not",
+                        "translation": "nicht"
+                    },
+                    {
+                        "original": "perish,",
+                        "translation": "umkommen,"
+                    },
+                    {
+                        "original": "but",
+                        "translation": "sondern"
+                    },
+                    {
+                        "original": "have",
+                        "translation": "hat"
+                    },
+                    {
+                        "original": "everlasting",
+                        "translation": "immerwährend"
+                    },
+                    {
+                        "original": "life.",
+                        "translation": "Leben."
+                    }
+                ],
+                "sentence1-translation" : "Denn Gott hat die Welt so serh geliebt, dass er seinen eingeborenen Sohn gab, damit jeder der an ihn glaubt nicht verloren geht sondern ewiges Leben hat."
+            };
+
+            //START code to generate edit-section
+            var editSectionHtml = "";
+            console.log(testJSON.sentence1.length);
+            editSectionHtml += '<div class="row bg-light sentence-with-edit-form" id="sentence??"><div class="col-1"></div><div class="col-7 pl-0 pr-0"><div class="interlinear-sentence">';
+            for (i = 0; i < testJSON.sentence1.length; i++) {
+                editSectionHtml += '<div class="unit"><p class="original">' + testJSON.sentence1[i].original + '</p><p class="translation-input"><input type="text" name="sentence1-word1" value="' + testJSON.sentence1[i].translation + '"></p></div>';
+            }
+            editSectionHtml += '</div></div><div class="col-3 pl-0 pr-0"><div class="parallel-sentence"><textarea name="translation-sentence??">Denn also hat Gott die Welt geliebt, dass er seinen eingeborenen Sohn gab, damit jeder der an ihn glaubt nicht verloren geht sondern ewiges Leben hat.';
+            editSectionHtml += '</textarea></div></div><div class="col-1"></div></div>';
+
+            $("div.testEditSection").html(editSectionHtml);
+            console.log(editSectionHtml);
+            //END code to generate edit-section
+
+            //START code to generate display-section
+            var displaySectionHTML = "";
+            displaySectionHTML += '<div class="row bg-light" id="sentence??"><div class="col-1"></div><div class="col-7 pl-0 pr-0"><div class="interlinear-sentence">';
+            for (i = 0; i < testJSON.sentence1.length; i++) {
+                displaySectionHTML += '<div class="unit"><p class="original">' + testJSON.sentence1[i].original + '</p><p class="translation">' + testJSON.sentence1[i].translation + '</p></div>';
+            }
+
+            displaySectionHTML += '</div></div><div class="col-3 pl-0 pr-0"><div class="parallel-sentence">';
+            displaySectionHTML += testJSON["sentence1-translation"];
+            displaySectionHTML += '</div></div><div class="col-1"></div></div>';
+            $("div.testDisplaySection").html(displaySectionHTML);
+            console.log(displaySectionHTML);
+            //END code to generate display-section
+
+            
+            //START let changed input-fields turn yellow
+            $(".sentence-with-edit-form .interlinear-sentence input").on("input", function() {
+                $(this).addClass("changed-input-element");
+            });
+            $(".sentence-with-edit-form .parallel-sentence textarea").on("input", function() {
+                $(this).addClass("changed-input-element");
+            });
+            //END let changed input-fields turn yellow
+        });
+    </script>
+</head>
+
+<body>
+    <div>
+        Heading
+    </div>
+
+    <div class="container-fluid">
+        <div class="row bg-primary">
+            <div class="col-1"></div>
+            <div class="col-10 pl-0 pr-0">
+                <h1>Title of the Text</h1>
+            </div>
+            <div class="col-1"></div>
+        </div>
+        <div class="row bg-primary">
+            <div class="col-1"></div>
+            <div class="col-7 pl-0 pr-0">
+                <h2>Interlinear Text</h2>
+            </div>
+            <div class="col-3 pl-0 pr-0">
+                <h2>Parallel</h2>
+            </div>
+            <div class="col-1"></div>
+        </div>
+        <div class="row bg-light" id="sentence1">
+            <div class="col-1"></div>
+            <div class="col-7 pl-0 pr-0">
+                <div class="interlinear-sentence">
+                    <div class="unit">
+                        <p class="original">οὕτως</p>
+                        <p class="translation">such</p>
+                    </div>
+                    <div class="unit">
+                        <p class="original">γὰρ</p>
+                        <p class="translation">for</p>
+                    </div>
+                    <div class="unit">
+                        <p class="original">ἠγάπησεν</p>
+                        <p class="translation">loved</p>
+                    </div>
+                    <div class="unit">
+                        <p class="original">ὁ θεὸς</p>
+                        <p class="translation">God</p>
+                    </div>
+                    <div class="unit">
+                        <p class="original">τὸν κόσμον</p>
+                        <p class="translation">the world</p>
+                    </div>
+                    <div class="unit">
+                        <p class="original">ὥστε</p>
+                        <p class="translation">that</p>
+                    </div>
+                    <div class="unit">
+                        <p class="original">τὸν υἱὸν τὸν μονογενῆ</p>
+                        <p class="translation">the only-begotten son</p>
+                    </div>
+                    <div class="unit">
+                        <p class="original">ἔδωκεν</p>
+                        <p class="translation">he gave</p>
+                    </div>
+                    <div class="unit">
+                        <p class="original">ἵνα</p>
+                        <p class="translation">so that</p>
+                    </div>
+                    <div class="unit">
+                        <p class="original">πᾶς ὁ πιστεύων</p>
+                        <p class="translation">all those who believe</p>
+                    </div>
+                    <div class="unit">
+                        <p class="original">εἰς αὐτὸν</p>
+                        <p class="translation">in him</p>
+                    </div>
+                    <div class="unit">
+                        <p class="original">μὴ ἀπόληται</p>
+                        <p class="translation">will not die</p>
+                    </div>
+                    <div class="unit">
+                        <p class="original">ἀλλ</p>
+                        <p class="translation">but</p>
+                    </div>
+                    <div class="unit">
+                        <p class="original">ἔχῃ</p>
+                        <p class="translation">will have</p>
+                    </div>
+                    <div class="unit">
+                        <p class="original">ζωὴν αἰώνιον</p>
+                        <p class="translation">eternal life</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3 pl-0 pr-0">
+                <div class="parallel-sentence">
+                    For God so loved the world, that he gave his only begotten son that whosoever believeth on him shall not perish but have eternal life.
+                </div>
+            </div>
+            <div class="col-1"></div>
+        </div>
+        <div>Test</div>
+        <form action="">
+            <div class="row bg-light sentence-with-edit-form" id="sentence1">
+                <div class="col-1"></div>
+                <div class="col-7 pl-0 pr-0">
+                    <div class="interlinear-sentence">
+                        <div class="unit">
+                            <p class="original">οὕτως</p>
+                            <p class="translation-input"><input type="text" name="sentence1-word1" value="such"></p>
+                        </div>
+                        <div class="unit">
+                            <p class="original">γὰρ</p>
+                            <p class="translation-input"><input type="text" name="sentence1-word2" value="for"></p>
+                        </div>
+                        <div class="unit">
+                            <p class="original">ἠγάπησεν</p>
+                            <p class="translation-input"><input type="text" name="sentence1-word3" value="loved"></p>
+                        </div>
+                        <div class="unit">
+                            <p class="original">ὁ θεὸς</p>
+                            <p class="translation-input"><input type="text" name="sentence1-word4" value="God"></p>
+                        </div>
+                        <div class="unit">
+                            <p class="original">τὸν κόσμον</p>
+                            <p class="translation-input"><input type="text" name="sentence1-word5" value="the world"></p>
+                        </div>
+                        <div class="unit">
+                            <p class="original">ὥστε</p>
+                            <p class="translation-input"><input type="text" name="sentence1-word6" value="that"></p>
+                        </div>
+                        <div class="unit">
+                            <p class="original">τὸν υἱὸν τὸν μονογενῆ</p>
+                            <p class="translation-input"><input type="text" name="sentence1-word7" value="the only-begotten son"></p>
+                        </div>
+                        <div class="unit">
+                            <p class="original">ἔδωκεν</p>
+                            <p class="translation-input"><input type="text" name="sentence1-word8" value="he gave"></p>
+                        </div>
+                        <div class="unit">
+                            <p class="original">ἵνα</p>
+                            <p class="translation-input"><input type="text" name="sentence1-word9" value="so that"></p>
+                        </div>
+                        <div class="unit">
+                            <p class="original">πᾶς ὁ πιστεύων</p>
+                            <p class="translation-input"><input type="text" name="sentence1-word10" value="all those who believe"></p>
+                        </div>
+                        <div class="unit">
+                            <p class="original">εἰς αὐτὸν</p>
+                            <p class="translation-input"><input type="text" name="sentence1-word11" value="in him"></p>
+                        </div>
+                        <div class="unit">
+                            <p class="original">μὴ ἀπόληται</p>
+                            <p class="translation-input"><input type="text" name="sentence1-word12" value="will not die"></p>
+                        </div>
+                        <div class="unit">
+                            <p class="original">ἀλλ</p>
+                            <p class="translation-input"><input type="text" name="sentence1-word13" value="but"></p>
+                        </div>
+                        <div class="unit">
+                            <p class="original">ἔχῃ</p>
+                            <p class="translation-input"><input type="text" name="sentence1-word14" value="will have"></p>
+                        </div>
+                        <div class="unit">
+                            <p class="original">ζωὴν αἰώνιον</p>
+                            <p class="translation-input"><input type="text" name="sentence1-word15" value="eternal life"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3 pl-0 pr-0">
+                    <div class="parallel-sentence">
+                        <textarea name="translation-sentence1">For God so loved the world, that he gave his only begotten son that whosoever believeth on him shall not perish but have eternal life.</textarea>
+                    </div>
+                </div>
+                <div class="col-1"></div>
+            </div>
+            <hr>
+            <div class="testDisplaySection">
+
+            </div>
+            <hr>
+            <div class="testEditSection">
+
+            </div>
+            <hr>
+            <button class="btn btn-primary">Save changes</button>
+        </form>
+    </div>
+
+</body>
+</html>

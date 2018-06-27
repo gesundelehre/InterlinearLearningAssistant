@@ -1,0 +1,127 @@
+<html>
+    <head>
+    <link rel="stylesheet" href="includes/bootstrap.css">
+    <script src="includes/jquery-3.3.1.min.js"></script>
+    <script src="includes/bootstrap.js" type="text/javascript"></script>
+    <style>
+    </style>
+    <script>
+        $("document").ready(function() {
+            $("#submitButtonForm1").mousedown(function() {
+
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Interlinearizer</a>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Import</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Export</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Settings</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Documentation</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container-fluid mt-3">
+        <div class="row header">
+            <div class="col-1"></div>
+            <div class="col-10">
+                <div class="card card-body bg-light">
+                    <h1 class="text-center">Import a new Text</h1>
+                    <div id="contentForm1">
+                        <h2>Step 1</h2>
+                        <form id=form1>
+                            <div class="form-group">
+                                <label for="textTitle">Title of Text</label>
+                                <input type="text" class="form-control" id="textTitle" aria-describedby="emailHelp" placeholder="Give your Text a Title">
+
+                            </div>
+                            <div class="form-group">
+                                <label for="fromLanguage">From Language</label>
+                                <select class="form-control" id="fromLanguage">
+                                    <option value="de">German</option>
+                                    <option value="en">English</option>
+                                    <option value="fr">French</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="toLanguage">To Language</label>
+                                <select class="form-control" id="toLanguage">
+                                    <option value="de">German</option>
+                                    <option value="en">English</option>
+                                    <option value="fr">French</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlTextarea1">Text to import</label>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            </div>
+                            <small id="noticeTextarea" class="form-text text-primary mb-2">To add a new paragraph, add two linebreask in a row.</small>
+                            <button type="submit" class="btn btn-primary" id="submitButtonForm1">Go to Step 2</button>
+                        </form>
+                    </div>
+
+
+                    <div id="contentForm2">
+                        <h2>Step 2</h2>
+                        <div><b>Title: </b><small id="form2Title">Title</small></div>
+                        <div><b>From-Language: </b><small id="form2FromLanguage">From-Lang</small></div>
+                        <div><b>To-Language: </b><small id="form2ToLanguage">To-Lang</small></div>
+                        <hr>
+                        <form id=form2 class="mt-3">
+                            <div class="form-group">
+                                <label for="textTitle">Title of Text</label>
+                                <input type="text" class="form-control" id="textTitle" aria-describedby="emailHelp" placeholder="Give your Text a Title">
+
+                            </div>
+                            <div class="form-group">
+                                <label for="fromLanguage">From Language</label>
+                                <select class="form-control" id="fromLanguage">
+                                    <option value="de">German</option>
+                                    <option value="en">English</option>
+                                    <option value="fr">French</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="toLanguage">To Language</label>
+                                <select class="form-control" id="toLanguage">
+                                    <option value="de">German</option>
+                                    <option value="en">English</option>
+                                    <option value="fr">French</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlTextarea1">Text to import</label>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            </div>
+                            <small id="noticeTextarea" class="form-text text-primary mb-2">To add a new paragraph, add two linebreask in a row.</small>
+                            <button type="submit" class="btn btn-primary">Import Text and Translation</button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-1"></div>
+        </div>
+    </div>
+</body>
+</html>

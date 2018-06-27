@@ -1,0 +1,16 @@
+<script>
+    var testText = "Mit unheimlicher Lautstärke dröhnen die Glocken der Friedenskirche durch meine Nachbarschaft. Insbesondere am Sonntagmorgen schallen sie derart durchdringend, dass jedes Schlafen verunmöglicht wird. Ein Christ antwortete auf mein Klagen diesbezüglich: \"Wir können doch froh sein um dieses Geläute. Das ruft uns Schweizern wenigstens wieder in Erinnerung, dass wir in einem christlichen Land leben.\" In einem christlichen Land? Wir? - Diese Idee macht mich stutzig. Was heisst es überhaupt, ein christliches Land zu sein? Und falls wir wissen was es heisst, ein christliches Land zu sein ? ist die Schweiz ein solches Land?\n\nSollen geleitet. Wenn man die \"Christlichkeit\" eines Landes daran messen will, ob die Teile, die es ausmachen ? seine Menschen, seine Führer, sein öffentliches Leben ? vom Glauben an den Gott Abrahams geprägt sind, so können wir die Schweiz nicht als christliches Land bezeichnen.";
+
+
+
+
+
+    console.log(splitText(testText));
+
+    function splitText(string) {
+        //string = string.replace(/\n\n/g,"ZEILENUMBRUCH-ZEILENUMBRUCH");
+        string = string.replace(/ /g,"\n");
+        return string;
+    }
+
+</script>

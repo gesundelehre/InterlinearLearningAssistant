@@ -1,0 +1,7 @@
+[Options]
+Name=create_interlinear_texts
+[Dir]
+Files=
+Images=images
+Css=styles
+Includes=includes
