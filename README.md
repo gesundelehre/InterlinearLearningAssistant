@@ -10,11 +10,6 @@ Goals
 * for one word, multiple translations can be saved (word - translation 1 / translation 2 / translation 3)
 * there is a raw mode & finetuning mode (for annotations)
 * words directly imported from google translate and already proofread words are displayed differently
-* tsv-file can be adapted manually & afterwards the html and pdf file can be created afresh (resp. it can be updated)
-
-
-
-
 
 
 * Step 1: Only create Interlinear Texts
