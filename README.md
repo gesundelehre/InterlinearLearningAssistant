@@ -7,10 +7,7 @@ Goals
 * List of words with corresponding translation can be exported
 * For already existing texts with translations, the wordtranslations thereof can be edited
 * projects are saved into the corresponding folders sorted by language-of-origin/language-of-destination
-* interlineartext can be exported as pdf
 * html-website can be created to read the interlinear text and listen to the audio
-* audio for interlinear text can be recored
-* pre-recorded audio (already existing mp3) for interlinear text can be uploaded
 * words are saved separately (word - translation)
 * for one word, multiple translations can be saved (word - translation 1 / translation 2 / translation 3)
 * there is a raw mode & finetuning mode (for annotations)
